@@ -1,5 +1,5 @@
-export function getUploader(component) {
-  let parent = component.$parent;
+export function getUploader (component) {
+  let parent = component.$parent
   while (parent) {
     if (parent.uploader) {
       return parent.uploader
@@ -10,27 +10,30 @@ export function getUploader(component) {
   return null
 }
 
-export function secondsToStr(temp) {
-  const years = Math.floor(temp / 31536000);
+export function secondsToStr (temp) {
+  const years = Math.floor(temp / 31536000)
   if (years) {
-    return years + ' 年';
+    return years + ' 年' + numberEnding(years)
   }
-  const days = Math.floor((temp %= 31536000) / 86400);
+  const days = Math.floor((temp %= 31536000) / 86400)
   if (days) {
-    return days + ' 天';
+    return days + ' 天' + numberEnding(days)
   }
-  const hours = Math.floor((temp %= 86400) / 3600);
+  const hours = Math.floor((temp %= 86400) / 3600)
   if (hours) {
-    return hours + ' 时';
+    return hours + ' 小时' + numberEnding(hours)
   }
-  const minutes = Math.floor((temp %= 3600) / 60);
+  const minutes = Math.floor((temp %= 3600) / 60)
   if (minutes) {
-    return minutes + ' 分';
+    return minutes + ' 分钟' + numberEnding(minutes)
   }
-  const seconds = temp % 60;
-  return seconds + ' 秒';
+  const seconds = temp % 60
+  return seconds + ' 秒' + numberEnding(seconds)
+  function numberEnding (number) {
+    return ''
+  }
 }
 
-export function kebabCase(s) {
+export function kebabCase (s) {
   return s.replace(/[A-Z]/g, (m) => `-${m.toLowerCase()}`)
 }
