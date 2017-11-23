@@ -30,7 +30,7 @@
         <div class="uploader-file-size">{{formatedSize}}</div>
         <div class="uploader-file-meta"></div>
         <div class="uploader-file-status">
-          <span v-show="status !== 'uploading'">{{status}}</span>
+          <span v-show="status !== 'uploading'">{{status | cn}}</span>
           <span v-show="status === 'uploading'">
             <span>{{progressStyle.progress}}</span>
             <em>{{formatedAverageSpeed}}</em>
@@ -358,7 +358,7 @@
     text-indent: 14px;
   }
   .uploader-file-icon {
-    width: 24px;
+    /*width: 24px;*/
     height: 24px;
     display: inline-block;
     vertical-align: top;
